@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var generate = function(numRows) {
+        if(numRows == 0)return [];
+        else if(numRows == 1)return [[1]];
+
+        let triangle = [[1]];
+        for(let i = 0; i <= numRows-2; i++){
+            let current = [1];
+            for(let j = 0; j < i; j++){
+                current.push(triangle[i][j] + triangle[i][j+1]);
+            }
+            current.push(1);
+            triangle.push(current);
+        }
+        return triangle;
+    };
+    console.log(generate(7));
+    
+</script>
+</html>

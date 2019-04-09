@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    var twoSum = function(nums, target) {
+        const len = nums.length;
+        let temp = {};
+        for(let i = 0; i < len; i++){
+            let n = target - nums[i];
+            let ans = temp[n];
+            if(ans != undefined){
+                return [ans,i];
+            }else{
+                temp[nums[i]]=i;
+            }
+        }
+    };
+</script>
+</html>
