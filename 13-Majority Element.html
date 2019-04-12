@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //第一种56%
+    // var majorityElement = function(nums) {
+    //     let res = nums.reduce((pre,cur) =>{
+    //         if(cur in pre){
+    //             pre[cur]++;
+    //         }else{
+    //             pre[cur]=1;
+    //         }
+    //         return pre;
+    //     },{})
+    //     let max=0,maxKey;
+    //     for(let key in res){
+    //         if(res[key] > max){
+    //             max = res[key];
+    //             maxKey = key;
+    //         }
+    //     }
+    //     return maxKey;
+    // };
+
+    //第三种38%
+    // var majorityElement = function(nums) {
+    //     nums.sort(function(a,b){
+    //         return a-b;
+    //     })
+    //     return nums[Math.floor(nums.length/2)];
+    // }
+
+    //第二种98%
+    var majorityElement = function(nums) {
+        let obj = {};
+        const len = nums.length;
+        for(let i=0; i<len; i++){
+            obj[nums[i]] = obj[nums[i]] + 1 || 1;
+            if(obj[nums[i]] > len/2)return nums[i];
+        }
+    }
+
+    let arr = [2,2,1,1,1,2,2];
+    console.log(majorityElement(arr));
+    
+</script>
+</html>
