@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //暴力解法 20%
+    // var containsNearbyDuplicate = function(nums, k) {
+    //     const len = nums.length;
+    //     for(let i=0; i<len-1; i++){
+    //         for(let j=i+1; j<len; j++){
+    //             if(nums[j] == nums[i]){
+    //                 if(j-i <= k){
+    //                     return true;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // };
+
+    //Map方法 97.27%
+    var containsNearbyDuplicate = function(nums, k) {
+        let map = new Map();
+        let pre;
+        const len = nums.length;
+        for(let i=0; i<len; i++){
+            if(map.has(nums[i])){
+                pre = map.get(nums[i]);
+                if(i-pre <= k)return true;
+                map.set(nums[i],i);
+            }else{
+                map.set(nums[i],i);
+            }
+        }
+        return false;
+    }
+    let arr =  [1,2,3,1], k = 3;
+    console.log(containsNearbyDuplicate(arr,k));
+    
+</script>
+</html>

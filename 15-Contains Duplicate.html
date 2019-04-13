@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //排序做法48%
+    // var containsDuplicate = function(nums) {
+    //     const len = nums.length;
+    //     nums.sort(function(a,b){
+    //         return a-b;
+    //     })
+    //     for(let i=0; i<len-1; i++){
+    //         if(nums[i] == nums[i+1])return true;
+    //     }
+    //     return false;
+    // };
+
+    //对象方法70.45%
+    // var containsDuplicate = function(nums) {
+    //     let obj = {};
+    //     const len = nums.length;
+    //     for(let i=0; i<len; i++){
+    //         obj[nums[i]] = obj[nums[i]]+1 || 1;
+    //         if(obj[nums[i]]>1)return true;
+    //     }
+    //     return false;
+    // }
+    
+    //Set去重方法88.4%
+    var containsDuplicate = function(nums) {
+        return [...new Set(nums)].length !== nums.length;
+    }
+
+    let arr = [1,2,3,1];
+    console.log(containsDuplicate(arr));
+    
+</script>
+</html>
