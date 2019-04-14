@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //排序暴力解法 30%
+    // var missingNumber = function(nums) {
+    //     nums.sort(function(a,b){
+    //         return a-b;
+    //     })
+    //     const len = nums.length;
+    //     if(nums[0]!=0)return 0;
+    //     for(let i =0; i<len; i++){
+    //         if(nums[i+1]-nums[i]!=1){
+    //             return nums[i]+1;
+    //         }
+    //     }
+    // };
+
+    //求和差解法 100% ^-^
+    var missingNumber = function(nums) {
+        const len = nums.length;
+        let sum = (len*(len+1))/2; 
+        let nowSum = nums.reduce((pre,cur)=>pre+cur);
+        return sum-nowSum;
+    }
+    let arr = [9,6,4,2,3,5,7,0,1];
+    console.log(missingNumber(arr));
+    
+</script>
+</html>

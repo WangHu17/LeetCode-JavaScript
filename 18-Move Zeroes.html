@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //85.5%
+    var moveZeroes = function(nums) {
+        let len = nums.length;
+        for(let i=0; i<len;){
+            if(nums[i]!=0)i++;
+            else{
+                nums.splice(i,1);
+                nums.push(0);
+                len--;
+            }
+        }
+        return nums;
+    };
+    let arr = [0,1,0,3,12];
+    console.log(moveZeroes(arr));
+    
+</script>
+</html>
