@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>19</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    //57.3%
+    // var thirdMax = function(nums) {
+    //     let arr = [...new Set(nums)];
+    //     const len = arr.length;
+    //     if(len == 1)return arr[0];
+    //     arr.sort(function(a,b){
+    //         return b-a;
+    //     })
+    //     if(len == 2)return arr[0];
+    //     return arr[2];
+    // };
+
+    //72.19%
+    var thirdMax = function(nums) {
+        const len = nums.length;
+        if(len == 1)return nums[0];
+        nums.sort(function(a,b){
+            return b-a;
+        })
+        if(len == 2)return nums[0];
+        let n=2;
+        for(let i=1; i<len; i++){
+            if(nums[i]<nums[i-1]){
+                n--;
+                if(n==0)return nums[i];
+            }
+        }
+        if(n!=0)return nums[0];
+    };
+    let arr = [2, 3, 2];
+    console.log(thirdMax(arr));
+    
+</script>
+</html>
