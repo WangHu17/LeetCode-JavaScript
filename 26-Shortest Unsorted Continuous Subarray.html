@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //10%
+    // var findUnsortedSubarray = function(nums) {
+    //     const len = nums.length;
+    //     let minFlag=0,maxFlag=0,flag1=0,flag2=0;
+    //     for(let i=0; i<len-1; i++){
+    //         for(let j=i+1; j<len; j++){
+    //             if(nums[i]>nums[j]){
+    //                 minFlag = i;
+    //                 flag1 = 1;
+    //                 break;
+    //             }
+    //         }
+    //         if(flag1)break;
+    //     }
+    //     for(let i=len-1; i>0; i--){
+    //         for(let j=i-1; j>=0; j--){
+    //             if(nums[i]<nums[j]){
+    //                 maxFlag = i;
+    //                 flag2 = 1;
+    //                 break;
+    //             }
+    //         }
+    //         if(flag2)break;
+    //     }
+    //     if(minFlag==0 && maxFlag==0)return 0;
+    //     return maxFlag-minFlag+1;
+    // };
+
+    //99.7%
+    var findUnsortedSubarray = function(nums) {
+        var min = Number.MAX_SAFE_INTEGER, max = Number.MIN_SAFE_INTEGER;
+        for (var i = 1; i < nums.length; i++){
+            if (nums[i] < nums[i-1]) { 
+                min = Math.min(min,nums[i]);
+            }
+        }
+        for (i = nums.length-2; i >= 0; i--){
+            if (nums[i] > nums[i+1]){ 
+                max = Math.max(max,nums[i]);
+            }
+        }
+        var l, r;
+        for (l = 0; l < nums.length; l++){
+            if (min < nums[l]){
+                break;
+            }
+        }
+        for (r = nums.length-1; r >= 0; r--){
+            if (max > nums[r]){
+                break;
+            }
+        }
+        return r-1 < 0 ? 0 : r-l+1;
+    }
+    let arr = [1,2,3,4];
+    console.log(findUnsortedSubarray(arr));
+    
+</script>
+</html>
