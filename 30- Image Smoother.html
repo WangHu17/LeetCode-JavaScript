@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //99.49%
+    var imageSmoother = function(M) {
+        let row = M.length;
+        let col = M[0].length;
+        let arr = [];
+        for(let i=0; i<row; i++){
+            let inner = [];
+            for(var j=0; j<col; j++){
+                var count = 0, sum = 0;
+                for(var r = i-1; r<=i+1; r++){
+                    for(var c = j-1; c<=j+1; c++){
+                        if(r>=0 && r<row && c>=0 && c<col){
+                            sum+=M[r][c];
+                            count++;
+                        }
+                    }
+                }
+                inner.push(Math.floor(sum/count));
+            }
+            arr.push(inner);
+        }
+        return arr;
+    };
+    let M = [[1,1,1],[1,0,1],[1,1,1]];
+    console.log(imageSmoother(M));
+    
+</script>
+</html>
