@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    //97.42% 30.77%
+    // var checkPossibility = function(nums) {
+    //     let arr1 = nums.slice(0);
+    //     let arr2 = nums.slice(0);
+    //     let i = nums.findIndex((value, index)=>value>nums[index+1]);
+    //     arr1.splice(i,1);
+    //     arr2.splice(i+1,1);
+    //     return !arr1.some((value, index)=>value>arr1[index+1]) || !arr2.some((value, index)=>value>arr2[index+1]);
+    // }
+
+    //97.42% 92.31%
+    var checkPossibility = function(nums) {
+        const len = nums.length;
+        let count = 0;
+        for(let i=0, j=1; i<len-1; i++, j++){
+            if(nums[i]>nums[j]){
+                count++;
+                if(i>0 && nums[i-1]>nums[j]){
+                    nums[j] = nums[i];
+                }
+            }
+        }
+        return count<=1;
+    };
+    let nums = [4,2,3];
+    console.log(checkPossibility(nums));
+    
+    
+</script>
+</html>
