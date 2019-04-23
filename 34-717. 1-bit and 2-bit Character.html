@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //12.27%
+    // var isOneBitCharacter = function(bits) {
+    //     let len = bits.length;
+    //     for(let i=0; i<len;){
+    //         if(bits[i] == 1){
+    //             bits.splice(i,2);
+    //             len=len-2;
+    //             if(len==0)return false;
+    //         }else{
+    //             if(bits[i+1] !== undefined){
+    //                 bits.splice(i,1);
+    //                 len--;
+    //             }else{
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    // };
+
+    //96.36%
+    var isOneBitCharacter = function(bits) {
+        let count = 0;
+        for(let i=bits.length-2; i>=0;  i--){
+            if(bits[i] == 1){
+                count++;
+            }else{
+                break;
+            }
+        }
+        return count%2 == 0;
+    }
+    let bits = [0,0,1,0];
+    console.log(isOneBitCharacter(bits));
+    
+</script>
+</html>
