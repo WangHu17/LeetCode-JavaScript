@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var minCostClimbingStairs = function(cost) {
+        const len = cost.length;
+        if(len == 2)return Math.min(...cost);
+        let a1 = cost[0], a2 = cost[1];
+        for(let i=2; i<len; i++){
+            let a3 = cost[i] + Math.min(a1, a2);
+            a1 = a2;
+            a2 = a3;
+        }
+        return Math.min(a1, a2);
+    };
+    let cost = [0,1,2,2,3,1];
+    console.log(minCostClimbingStairs(cost));
+    
+</script>
+</html>
