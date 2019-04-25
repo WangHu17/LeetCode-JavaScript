@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //98.17% 
+    var isToeplitzMatrix = function(matrix) {
+        const row = matrix.length;
+        const col = matrix[0].length;
+        for(let i=1; i<row; i++){
+            for(let j=1; j<col; j++){
+                if(matrix[i][j] != matrix[i-1][j-1])return false;
+            }
+        }
+        return true;
+    };
+    let matrix = [
+        [1,2,3,4],
+        [5,1,2,3],
+        [9,5,1,2]
+    ];
+    console.log(isToeplitzMatrix(matrix));
+    
+</script>
+</html>

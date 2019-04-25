@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //90.34%
+    var largeGroupPositions = function(S) {
+        let res = [];
+        const len = S.length;
+        let j=0;
+        for(let i=0; i<len; i++){
+            let arr = [];
+            if(i == len-1 || S[i] != S[i+1]){
+                if(i-j+1 >= 3){
+                    arr.push(j);
+                    arr.push(i);
+                    res.push(arr);
+                }
+                j = i+1;
+            }
+        }
+        return res;
+    };
+    let S = "abbxxxxzzy";
+    console.log(largeGroupPositions(S));
+    
+</script>
+</html>
