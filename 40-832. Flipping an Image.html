@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //99.84%
+    var flipAndInvertImage = function(A) {
+        const row = A.length;
+        const col = A[0].length;
+        for(let i=0; i<row; i++){
+            A[i].reverse();
+            for(let j=0; j<col; j++){
+                A[i][j] = Math.abs(A[i][j] - 1);
+            }
+        }
+        return A;
+    };
+    let A = [
+        [1,1,0],
+        [1,0,1],
+        [0,0,0]
+    ];
+    console.log(flipAndInvertImage(A));
+    
+</script>
+</html>

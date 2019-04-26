@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //100.00%
+    var numMagicSquaresInside = function(grid) {
+        const row = grid.length;
+        const col = grid[0].length;
+        let count = 0;
+        for(let i=0; i<row-2; i++){
+            for(let j=0; j<col-2; j++){
+                if(grid[i][j]+grid[i][j+1]+grid[i][j+2]==grid[i+1][j]+grid[i+1][j+1]+grid[i+1][j+2] 
+                    && grid[i+1][j]+grid[i+1][j+1]+grid[i+1][j+2]==grid[i+2][j]+grid[i+2][j+1]+grid[i+2][j+2] 
+                    && grid[i][j]+grid[i+1][j]+grid[i+2][j]==grid[i][j+1]+grid[i+1][j+1]+grid[i+2][j+1] 
+                    && grid[i][j+1]+grid[i+1][j+1]+grid[i+2][j+1]==grid[i][j+2]+grid[i+1][j+2]+grid[i+2][j+2]
+                    && grid[i][j]+grid[i+1][j+1]+grid[i+2][j+2]==grid[i][j+2]+grid[i+1][j+1]+grid[i+2][j]
+                    && checkNum(grid, i, j)){
+
+                    count++;
+                }
+            }
+        }
+        return count;
+    };
+    var checkNum = function(grid,i,j){
+        let num = [];
+        for(let p=0; p<3; p++){
+            for(let q=0; q<3; q++){
+                if(grid[i+p][j+q] <= 9 && grid[i+p][j+q]>=1 && num.indexOf(grid[i+p][j+q]) == -1){
+                    num.push(grid[i+p][j+q]);
+                }
+            }
+        }
+        return num.length == 9;
+    }
+    let grid = [
+        [3,2,9,2,7],
+        [6,1,8,4,2],
+        [7,5,3,2,7],
+        [2,9,4,9,6],
+        [4,3,8,2,5]
+    ];
+    console.log(numMagicSquaresInside(grid));
+    
+</script>
+</html>
