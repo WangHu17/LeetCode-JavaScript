@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var maxDistToClosest = function(seats) {
+        const len = seats.length;
+        let res = 0, left = 0;
+        for(let i=0; i<len; i++){
+            if(seats[i] == 1){
+                res = left>0 ? Math.max(res, Math.floor((i-left+1)/2)) : i;
+                left = i+1;
+            }
+        }
+        res = Math.max(res, (len-left));
+        return res;
+    };
+    let seats = [1,0,0,0,1,0,1];
+    console.log(maxDistToClosest(seats));
+    
+</script>
+</html>
