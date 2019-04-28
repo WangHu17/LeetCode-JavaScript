@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //暴力 18.82%
+    // var fairCandySwap = function(A, B) {
+    //     let Sa = A.reduce((pre, cur)=>pre+cur);
+    //     let Sb = B.reduce((pre, cur)=>pre+cur);
+    //     const len1 = A.length;
+    //     const len2 = B.length;
+    //     for(let i=0; i<len1; i++){
+    //         for(let j=0; j<len2; j++){
+    //             if(Sa-A[i]+B[j] == Sb-B[j]+A[i])return [A[i],B[j]];
+    //         }
+    //     }
+    // };
+
+    //51.18%
+    // var fairCandySwap = function(A, B) {
+    //     let Sa = A.reduce((pre, cur)=>pre+cur);
+    //     let Sb = B.reduce((pre, cur)=>pre+cur);
+    //     const len = A.length;
+    //     let ave = (Sb-Sa)/2;
+    //     for(let i=0; i<len; i++){
+    //         let b = A[i] + ave;
+    //         let j = B.indexOf(b);
+    //         if(j != -1)return [A[i],b];
+    //     }
+    // }
+
+    //99.71%
+    var fairCandySwap = function(A, B) {
+        const sum = (first, next) => first + next;
+        const sumA = A.reduce(sum);
+        const sumB = B.reduce(sum);
+        const mid = (sumA + sumB) / 2;
+        const setB = new Set(B);      
+        
+        for (let i=0; i< A.length; i++ ) {     
+            const current = A[i];
+            const withoutCurrent = sumA - current;
+            const searchedItem = mid - withoutCurrent;
+                        
+            if ( setB.has(searchedItem) &&  sumB - searchedItem + current === mid ) {
+                return [ A[i], searchedItem ];
+            }        
+        } 
+    };
+    let A = [1,2,5], B = [2,4];
+    console.log(fairCandySwap(A,B));
+    
+</script>
+</html>
