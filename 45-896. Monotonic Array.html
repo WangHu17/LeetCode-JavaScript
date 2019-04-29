@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //100.00%
+    var isMonotonic = function(A) {
+        const len = A.length;
+        if(A[0] <= A[len-1]){
+            for(let i=0; i<len-1; i++){
+                if(A[i] > A[i+1])return false;
+            }
+        }else{
+            for(let i=0; i<len-1; i++){
+                if(A[i] < A[i+1])return false;
+            }
+        }
+        return true;
+    };
+    let A = [3,3,3,3];
+    console.log(isMonotonic(A));
+    
+</script>
+</html>
