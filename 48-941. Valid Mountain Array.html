@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //100%
+    var validMountainArray = function(A) {
+        const len = A.length;
+        if(len < 3)return false;
+        if(A[0] >= A[1] || A[len-1] >= A[len-2])return false;
+        if(len == 3)return true;
+        let top;
+        for(let i=1; i<len-1;){
+            if(A[i] == A[i+1])return false;
+            if(A[i] > A[i+1]){
+                top = i+1;
+                break;
+            }else{
+                i++;
+            }
+        }
+        while(top < len){
+            if(A[top] <= A[top+1]){
+                return false;
+            }else{
+                top++;
+            }
+        }
+        return true;
+    };
+    let A = [3,6,5,6,7,6,5,3,0];
+    console.log(validMountainArray(A));
+    
+</script>
+</html>
