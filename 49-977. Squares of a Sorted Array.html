@@ -21,8 +21,20 @@
     //     return A;
     // };
 
+    //99.78%
     var sortedSquares = function(A) {
-        
+        const len = A.length;
+        let i=0, j=len-1, arr = [];
+        while(i<=j){
+            if(Math.abs(A[i]) >= Math.abs(A[j])){
+                arr.push(A[i]*A[i]);
+                i++;
+            }else{
+                arr.push(A[j]*A[j]);
+                j--;
+            }
+        }
+        return arr.reverse();
     }
     let A = [-4,-1,0,3,10];
     console.log(sortedSquares(A));
