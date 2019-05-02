@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //35.47%
+    // var addToArrayForm = function(A, K) {
+    //     let len = A.length;
+    //     let arr = [];
+    //     while(--len >= 0 || K>0){
+    //         if(len>=0)K += A[len];
+    //         arr.unshift(K%10);
+    //         K = Math.floor(K/10);
+    //     }
+    //     return arr;
+    // };
+
+    // 99.57%
+    var addToArrayForm = function(A, K) {
+        let len = A.length - 1;
+        while(K){
+            if(len < 0){
+                A.unshift(K%10);
+            }else{
+                K += A[len];
+                A[len--] = K%10;
+            }
+            K = Math.floor(K/10);
+        }
+        return A;
+    }
+    let A = [1,2,0,0], K = 34;
+    console.log(addToArrayForm(A, K));
+    
+</script>
+</html>
