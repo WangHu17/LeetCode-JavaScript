@@ -11,13 +11,42 @@
 </body>
 <script>
     var numRookCaptures = function(board) {
-        
+        const len = board.length;
+        let row = 0, col = 0;
+        for(let row=0; row<len; row++){
+            if(board[row].indexOf('R') != -1){
+                col = board[row].indexOf('R');
+                break;
+            }
+        }
+        let row1 = row, col1 = col;
+        let n = 0;
+        [-1, 1].forEach(function(i){
+            while(board[row][col] != 'B' && col >= 0 && col <= len-1){
+                col += i;
+                if(board[row][col] == 'p'){
+                    n++;
+                    break;
+                }
+            }
+            col = col1;
+        })
+        [-1, 1].forEach(function(i){
+            while(board[row1][col1] != 'B' && row1 >= 0 && row1 <= len-1){
+                row1 += i;
+                if(board[row1][col1] == 'p'){
+                    n++;
+                    break;
+                }
+            }
+        })
+        return n;
     };
     let board = [
         [".",".",".",".",".",".",".","."],
-        [".",".",".","p",".",".",".","."],
-        [".",".",".","p",".",".",".","."],
-        ["p","p",".","R",".","p","B","."],
+        [".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".","."],
+        [".",".",".","R",".",".","B","."],
         [".",".",".",".",".",".",".","."],
         [".",".",".","B",".",".",".","."],
         [".",".",".","p",".",".",".","."],
