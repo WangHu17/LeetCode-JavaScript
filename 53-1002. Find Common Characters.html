@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 97.94%
+    var commonChars = function(A) {
+        let ans = A[0].split('');
+        for(let i=1; i<A.length; i++){
+            ans = findCommon(ans, A[i].split(''));
+        }
+        return ans;
+    };
+    var findCommon = function(a,b){
+        return a.filter(val => {
+            let ind = b.indexOf(val);
+            if(ind != -1){
+                b.splice(ind, 1);
+                return true;
+            }
+            return false;
+        })
+    }
+    let A = ["bella","label","roller"];
+    console.log(commonChars(A));
+    
+</script>
+</html>

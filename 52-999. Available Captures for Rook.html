@@ -10,46 +10,59 @@
     
 </body>
 <script>
+    //97.89%
     var numRookCaptures = function(board) {
         const len = board.length;
         let row = 0, col = 0;
-        for(let row=0; row<len; row++){
+        for(row=0; row<len; row++){
             if(board[row].indexOf('R') != -1){
                 col = board[row].indexOf('R');
                 break;
             }
         }
-        let row1 = row, col1 = col;
         let n = 0;
-        [-1, 1].forEach(function(i){
-            while(board[row][col] != 'B' && col >= 0 && col <= len-1){
-                col += i;
-                if(board[row][col] == 'p'){
-                    n++;
-                    break;
-                }
-            }
-            col = col1;
-        })
-        [-1, 1].forEach(function(i){
-            while(board[row1][col1] != 'B' && row1 >= 0 && row1 <= len-1){
-                row1 += i;
-                if(board[row1][col1] == 'p'){
-                    n++;
-                    break;
-                }
-            }
-        })
+        let col1 = col;
+        while(col1 > 0){
+            col1--;
+            if(board[row][col1] === 'p'){
+                n++;
+                break;
+            }else if(board[row][col1] != '.')break;
+        }
+        let col2 = col;
+        while(col2 < len-1){
+            col2++;
+            if(board[row][col2] === 'p'){
+                n++;
+                break;
+            }else if(board[row][col2] != '.')break;
+        }
+        let row1 = row
+        while(row1 > 0){
+            row1--;
+            if(board[row1][col] === 'p'){
+                n++;
+                break;
+            }else if(board[row1][col] != '.')break;
+        }
+        let row2 = row;
+        while(row2 < len-1){
+            row2++;
+            if(board[row2][col] === 'p'){
+                n++;
+                break;
+            }else if(board[row2][col] != '.')break;
+        }
         return n;
     };
     let board = [
         [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".","R",".",".","B","."],
-        [".",".",".",".",".",".",".","."],
-        [".",".",".","B",".",".",".","."],
         [".",".",".","p",".",".",".","."],
+        [".",".",".",".",".",".",".","."],
+        [".",".",".","R",".","p","B","."],
+        [".",".",".",".",".",".",".","."],
+        [".",".",".","p",".",".",".","."],
+        [".",".",".",".",".",".",".","."],
         [".",".",".",".",".",".",".","."]
     ];
     console.log(numRookCaptures(board));
