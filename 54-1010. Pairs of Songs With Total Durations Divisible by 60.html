@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //77.75%
+    var numPairsDivisibleBy60 = function(time) {
+        let n=0;
+        let obj = {};
+        time.forEach(v =>{
+            let a = v%60;
+            let b = (60-a)%60;
+            n += obj[b]?obj[b]:0;
+            obj[a] = obj[a]?obj[a]+1:1;
+        })
+        return n;
+    };
+    let time = [30,20,150,100,40];
+    console.log(numPairsDivisibleBy60(time));
+    
+</script>
+</html>
