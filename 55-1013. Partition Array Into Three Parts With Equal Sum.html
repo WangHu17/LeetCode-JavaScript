@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //100.00%
+    var canThreePartsEqualSum = function(A) {
+        let sum=0;
+        A.forEach(v =>{
+            sum+=v;
+        })
+        sum /= 3;
+        if(sum != Math.floor(sum))return false;
+        let a = A.reduce((pre, cur)=>{
+            pre += cur;
+            if(pre == sum)pre = 0;
+            return pre;
+        },0)
+        return a == 0;
+    };
+    let A = [12,-4,16,-5,9,-3,3,8,0];
+    console.log(canThreePartsEqualSum(A));
+    
+</script>
+</html>
