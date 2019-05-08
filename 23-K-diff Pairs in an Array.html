@@ -10,8 +10,30 @@
     
 </body>
 <script>
+    //100.00%
     var findPairs = function(nums, k) {
-        
+        if(k<0)return 0;
+        let map = new Map();
+        for(let i in nums){
+            if(!map.has(nums[i])){
+                map.set(nums[i], 0);
+            }
+            map.set(nums[i],map.get(nums[i])+1);
+        }
+        let n = 0;
+        if(k == 0){
+            for(let value of map.values()){
+                if(value > 1)n++;
+            }
+            return n;
+        }
+        for(let key of map.keys()){
+            if(map.has(key + k))n++;
+        }
+        return n;
     };
+    let nums = [3, 1, 4, 1, 5], k = 2;  
+    console.log(findPairs(nums, k));
+    
 </script>
 </html>
