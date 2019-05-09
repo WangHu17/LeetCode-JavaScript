@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //100.00%
+    var hasGroupsSizeX = function(deck) {
+        let map = new Map();
+        for(let i in deck){
+            if(!map.get(deck[i])){
+                map.set(deck[i], 0);
+            }
+            let num = map.get(deck[i]) + 1;
+            map.set(deck[i], num);
+        }
+        let n = -1;
+        for(let value of map.values()){
+            if(n<0){
+                n = value;
+            }else{
+                n = getMin(n, value);
+            }
+        }
+        return n>=2;
+    };
+    var getMin = function(x,y){
+        return x==0 ? y:getMin(y%x, x);
+    }
+    let deck = [0,0,0,1,1,1,1,1,1,2,2,2,3,3,3];
+    console.log(hasGroupsSizeX(deck));
+    
+</script>
+</html>
