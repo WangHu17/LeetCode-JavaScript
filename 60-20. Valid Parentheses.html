@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 99.48%
+    var isValid = function(s) {
+        let arr = [];
+        for(let c of s){
+            if(c == '[' || c == '(' || c == '{'){
+                arr.push(c);
+            }else{
+                if(!isMatch(arr.pop(), c))return false;
+            }
+        }
+        return arr.length == 0;
+    };
+    var isMatch = function(a, b){
+        let s = a+b;
+        return s == "[]" || s == "()" || s == "{}";
+    }
+    let s = "([]){}";
+    console.log(isValid(s));
+    
+</script>
+</html>
