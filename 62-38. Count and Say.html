@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //98.85%
+    var countAndSay = function(n) {
+        let s = "1";
+        let k = "";
+        for(let i=0; i<n-1; i++){
+            for(let j=0; j<s.length; j++){
+                let l = 1;
+                while(s[j] == s[j+1]){
+                    l++;
+                    j++;
+                }
+                k+=l;
+                k+=s[j];
+            }
+            s = k;
+            k = "";
+        }
+        return s;
+    };
+    console.log(countAndSay(5));
+    
+</script>
+</html>
