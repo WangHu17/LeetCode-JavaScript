@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var addBinary = function(a, b) {
+        let a1 = 0, b1 = 0, sum = 0;
+        const len1 = a.length;
+        const len2 = b.length;
+        for(let i = 0; i < len1; i++){
+            a1 += a[i]*Math.pow(2, len1-i-1);
+        }
+        for(let j = 0; j < len2; j++){
+            b1 += b[j]*Math.pow(2, len2-j-1);
+        }
+        sum = a1 + b1;
+        return sum.toString(2);
+    };
+    let a = "11", b = "1";
+    console.log(addBinary(a, b));
+    
+</script>
+</html>

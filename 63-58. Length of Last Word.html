@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //96.86%
+    var lengthOfLastWord = function(s) {
+        s = s.trim();
+        if(s == undefined || s == "")return 0;
+        const len = s.length;
+        let i = s.lastIndexOf(' ');
+        if(i != -1){
+            return len- i-1;
+        }else{
+            return len;
+        }
+    };
+    let s = "a ";
+    console.log(lengthOfLastWord(s));
+    
+</script>
+</html>
