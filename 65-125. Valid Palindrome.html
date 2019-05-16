@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //88.56%
+    var isPalindrome = function(s) {
+        let arr = [];
+        for(let i of s){
+            if((i.toLowerCase() >= 'a' && i.toLowerCase() <= 'z') || (i >= '0' && i <= '9')){
+                arr.push(i.toLowerCase());
+            }
+        }
+        let pre = arr.join('');
+        let rev = arr.reverse().join('');
+        return pre==rev?true:false;
+    };  
+    let s = "0P";
+    console.log(isPalindrome(s));
+    
+</script>
+</html>
