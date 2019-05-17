@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var reverseVowels = function(s) {
+        let arr = [];
+        for(let i of s){
+            if(i.toLowerCase() == 'a'|| i.toLowerCase() =='e'|| i.toLowerCase() =='i'|| i.toLowerCase() =='o'|| i.toLowerCase() =='u'){
+                arr.unshift(i);
+            }
+        }
+        let j = 0, r = '';
+        for(let i=0; i<s.length; i++){
+            if(s[i].toLowerCase() == 'a'|| s[i].toLowerCase() =='e'|| s[i].toLowerCase() =='i'|| s[i].toLowerCase() =='o'|| s[i].toLowerCase() =='u'){
+                r += arr[j++];
+            }else{
+                r += s[i];
+            }
+        }
+        return r;
+    };
+    let s = "lEetcode";
+    console.log(reverseVowels(s));
+    
+</script>
+</html>
