@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //99.46%
+    var canConstruct = function(ransomNote, magazine) {
+        let a = magazine.split('');
+        for(let s of ransomNote){
+            let i = a.indexOf(s);
+            if(i == -1){
+                return false
+            }
+            else{
+                a.splice(i,1);
+            }
+        }
+        return true;
+    };
+    let ransomNote = "fffbfg", magazine = "effjfggbffjdgbjjhhdegh";
+    console.log(canConstruct(ransomNote, magazine));
+</script>
+</html>
