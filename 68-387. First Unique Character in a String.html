@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var firstUniqChar = function(s) {
+    //     let arr = s.split('');
+    //     for(let i in arr){
+    //         if(arr.indexOf(arr[i]) == arr.lastIndexOf(arr[i])){
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // };
+
+    //68.17%
+    var firstUniqChar = function(s) {
+        if (s === null) {
+            return 0;
+        }
+        if(s == "")return -1;
+        let map = new Map();
+        for(let i of s){
+            if(map.has(i)){
+                map.set(i, map.get(i)+1);
+            }else{
+                map.set(i, 1);
+            }
+        }
+        for(let i=0; i<s.length; i++){
+            if(map.get(s[i]) == 1){
+                return i;
+            }
+        }
+        return -1;
+    }
+    let s = "leetcode";
+    console.log(firstUniqChar(s));
+    
+</script>
+</html>
