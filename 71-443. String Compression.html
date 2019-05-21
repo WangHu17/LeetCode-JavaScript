@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var compress = function(chars) {
+        let map = new Map();
+        for(let i in chars){
+            if(map.has(chars[i])){
+                map.set(chars[i],map.get(chars[i])+1);
+            }else{
+                map.set(chars[i],1);
+            }
+        }
+        let sum = 0;
+        for(let i of map){
+            sum++;
+            if(i[1]!=1){
+                sum += i[1]>999?4:i[1]>99?3:i[1]>9?2:1;
+            }
+        }
+        return sum;
+    };
+    let chars = ["a","a","b","b","c","c"];
+    console.log(compress(chars));
+    
+</script>
+</html>
