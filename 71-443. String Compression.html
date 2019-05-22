@@ -10,25 +10,64 @@
     
 </body>
 <script>
+    //92.57%
     var compress = function(chars) {
-        let map = new Map();
-        for(let i in chars){
-            if(map.has(chars[i])){
-                map.set(chars[i],map.get(chars[i])+1);
+        let arr = [];
+        chars.push(chars[0]);
+        let num = 1, sum = 1, len = chars.length;
+        for(let i=0; i<len-2; i++){
+            if(chars[i] == chars[i+1]){
+                num++;
             }else{
-                map.set(chars[i],1);
+                sum++;
+                if(num > 1){
+                    let n = num>999?4:num>99?3:num>9?2:1;
+                    let s = '' + num;
+                    if(n == 1){
+                        chars.push(s);
+                    }else if(n == 2){
+                        chars.push(s[0]);
+                        chars.push(s[1]);
+                    }else if(n == 3){
+                        chars.push(s[0]);
+                        chars.push(s[1]);
+                        chars.push(s[2]);
+                    }else{
+                        chars.push(s[0]);
+                        chars.push(s[1]);
+                        chars.push(s[2]);
+                        chars.push(s[3]);                    
+                    }
+                    sum += n;
+                }
+                chars.push(chars[i+1]);
+                num = 1;
             }
         }
-        let sum = 0;
-        for(let i of map){
-            sum++;
-            if(i[1]!=1){
-                sum += i[1]>999?4:i[1]>99?3:i[1]>9?2:1;
+        if(num > 1){
+            let n = num>999?4:num>99?3:num>9?2:1;
+            let s = '' + num;
+            if(n == 1){
+                chars.push(s);
+            }else if(n == 2){
+                chars.push(s[0]);
+                chars.push(s[1]);
+            }else if(n == 3){
+                chars.push(s[0]);
+                chars.push(s[1]);
+                chars.push(s[2]);
+            }else{
+                chars.push(s[0]);
+                chars.push(s[1]);
+                chars.push(s[2]);
+                chars.push(s[3]);                    
             }
+            sum += n;
         }
+        chars.splice(0,len-1);
         return sum;
     };
-    let chars = ["a","a","b","b","c","c"];
+    let chars = ["a","a","b","b","b","b","b","b","b","b","b","b","b","b","b","b","b","b"];
     console.log(compress(chars));
     
 </script>
