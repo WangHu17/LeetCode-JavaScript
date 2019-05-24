@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //98.43%
+    var detectCapitalUse = function(word) {
+        if(word[0] >= 'A' && word[0] <= 'Z'){
+            if(word[1] >= 'A' && word[1] <= 'Z'){
+                for(let i=2; i<word.length; i++){
+                    if(word[i] >= 'a' && word[i] <= 'z')return false;
+                }
+            }else{
+                for(let i=2; i<word.length; i++){
+                    if(word[i] >= 'A' && word[i] <= 'Z')return false;
+                }
+            }
+        }else{
+            for(let i=1; i<word.length; i++){
+                if(word[i] >= 'A' && word[i] <= 'Z')return false;
+            }
+        }
+        return true;
+    };
+    let word = "isA";
+    console.log(detectCapitalUse(word));
+    
+</script>
+</html>
