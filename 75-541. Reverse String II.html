@@ -10,8 +10,15 @@
     
 </body>
 <script>
+    //100.00%
     var reverseStr = function(s, k) {
-        
+        if(s.length <= k)return s.split('').reverse().join('');
+        let arr = s.split('');
+        for(let i=0; i<s.length; i+=2*k){
+            let reverse = arr.splice(i,k).reverse();
+            arr.splice(i,0,...reverse);
+        }
+        return arr.join('');
     };
     let s = "abcdefg", k = 2;
     console.log(reverseStr(s, k));
